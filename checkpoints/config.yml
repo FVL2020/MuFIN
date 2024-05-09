@@ -1,0 +1,41 @@
+MODE: 1             # 1: train, 2: test, 3: eval
+MASK: 3             # 1: random block, 2: half, 3: external, 4: (external, random block), 5: (external, random block, half)
+SEED: 10            # random seed
+GPU: [0,1]            # list of gpu ids
+DEBUG: 0            # turns on debugging mode
+VERBOSE: 0          # turns on verbose mode in the output console
+
+TRAIN_FLIST: ./datasets/celeba_train.flist
+VAL_FLIST: ./datasets/celeba_val.flist
+TEST_FLIST: ./datasets/celeba_test.flist
+
+TRAIN_MASK_FLIST: ./datasets/mask_train.flist
+VAL_MASK_FLIST: ./datasets/mask_val.flist
+TEST_MASK_FLIST: ./datasets/mask_test.flist
+
+caption_path: ./checkpoints/CelebA
+text_encoder_path: ./checkpoints/CelebA/text_encoder.pth
+beam_size: 1
+max_seq_len: 18
+
+image_size: 256
+LR: 0.0001                    # learning rate
+D2G_LR: 0.1                   # discriminator/generator learning rate ratio
+BETA1: 0.0                    # adam optimizer beta1
+BETA2: 0.9                    # adam optimizer beta2
+BATCH_SIZE: 12                 # input batch size for training
+INPUT_SIZE: 256               # input image size for training 0 for original size
+MAX_EPOCH: 40
+
+L1_LOSS_WEIGHT: 1             # l1 loss weight
+STYLE_LOSS_WEIGHT: 250        # style loss weight
+CONTENT_LOSS_WEIGHT: 0.1      # perceptual loss weight
+INPAINT_ADV_LOSS_WEIGHT: 0.1  # adversarial loss weight
+
+GAN_LOSS: nsgan               # nsgan | lsgan | hinge
+
+SAVE_INTERVAL: 1000           # how many iterations to wait before saving model (0: never)
+SAMPLE_INTERVAL: 500          # how many iterations to wait before sampling (0: never)
+SAMPLE_SIZE: 16               # number of images to sample
+EVAL_INTERVAL: 0              # how many iterations to wait before model evaluation (0: never)
+LOG_INTERVAL: 100             # how many iterations to wait before logging training status (0: never)
