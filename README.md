@@ -33,6 +33,8 @@ Run:
 ```
 python test.py --checkpoints [path to checkpoints]
 ```
+# Weights
+We provide our pre-trained model in [BaiduNetdisk](https://pan.baidu.com/s/1Z7syf-CLeiQO8sX9lm_Oig?pwd=zq18 ). The code is zq18.
 # Evaluating
 Run:
 ```
